@@ -4,20 +4,17 @@ import { pool } from '../config/db.js'
 
 export const validateToken = async (req, res, next) => {
   try {
-    // Extrae el token del encabezado Authorization
     const token = req.headers.authorization?.split(' ')[1]
-    console.log('Token recibido:', token) // Verifica que el token se imprima correctamente en la consola
+    console.log('Token recibido:', token)
 
     if (!token) {
       console.error('Token no proporcionado')
       return res.status(401).json({ message: 'Token no proporcionado' })
     }
 
-    // Verifica y decodifica el token
     const decoded = jwt.verify(token, SECRET_KEY)
-    console.log('Decoded JWT:', decoded) // Verifica que el token decodificado se imprima correctamente
+    console.log('Decoded JWT:', decoded)
 
-    // Consulta a la base de datos
     const [rows] = await pool.query('SELECT * FROM Usuario WHERE id_usuario = ?', [decoded.id_usuario])
 
     if (rows.length === 0) {

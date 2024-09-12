@@ -42,15 +42,13 @@ export const createUserController = async (req, res) => {
       return res.status(400).json({ message: 'La contraseña es requerida' })
     }
 
-    // Cifra la contraseña antes de guardar el usuario
     const hashedPassword = await bcrypt.hash(contraseña, SALT_ROUNDS)
 
-    // Crea el usuario con la contraseña cifrada
     const newUser = await createUser({ ...userData, contraseña: hashedPassword })
 
     res.status(201).json(newUser)
   } catch (error) {
-    console.error('Error al crear el usuario:', error) // Registro del error para depuración
+    console.error('Error al crear el usuario:', error)
     res.status(500).json({ message: 'Error al crear el usuario', error: error.message })
   }
 }
