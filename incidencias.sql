@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-09-2024 a las 19:22:24
+-- Tiempo de generación: 12-09-2024 a las 10:34:02
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -90,15 +90,17 @@ CREATE TABLE `Incidencia` (
 --
 
 INSERT INTO `Incidencia` (`idIncidencia`, `asunto`, `tipo_incidencia`, `descripcion`, `ubicacion`, `fecha_reporte`, `estado`, `id_usuario`) VALUES
-(1, 'Fuga de agua', 'Fontanería', 'Hay una fuga de agua en el baño del tercer piso', 'Baño - Tercer piso', '2024-09-03 13:16:37', 'Pendiente', 1),
+(1, 'Fuga de agua', 'Fontanería', 'Hay una fuga de agua en el baño del tercer piso', 'Baño - Tercer piso', '2024-09-03 13:16:37', 'Resuelta', 1),
 (2, 'Luz parpadeante', 'Electricidad', 'La luz del pasillo parpadea constantemente', 'Pasillo - Segundo piso', '2024-09-03 13:16:37', 'En Proceso', 2),
 (3, 'Puerta rota', 'Carpintería', 'La puerta del garaje está rota y no cierra bien', 'Garaje', '2024-09-03 13:16:37', 'Resuelta', 1),
 (4, 'Fuga de agua', 'fontanería', 'Hay una fuga constante en la tubería de la cocina', 'Cocina, piso 1', '2024-09-04 12:26:22', 'Pendiente', 1),
-(7, 'Una Prueba', 'Emergencia para la prueba', 'asdasfvasdfas', '1er piso mi casa', '2024-09-09 03:06:44', 'Pendiente', NULL),
 (8, 'segunda pruebaaaaa!!!!!! ', 'Sanitaria', 'Hay mucho covid en el mundo ', 'tierra 161616', '2024-09-09 03:09:40', 'Pendiente', NULL),
 (9, 'Ratones en Cocina', 'Plaga', 'Pasé por la tarde después del almuerzo a mi residencia cuando veo 2 ratones pasando rápidamente a mi costado', 'residencia 5 - calle', '2024-09-09 03:15:52', 'Pendiente', NULL),
-(10, 'sadasd', 'sdsa', 'asdasd', 'asdasdasd', '2024-09-09 03:44:12', 'Pendiente', NULL),
-(11, 'hgolskswjdhckalsdhflsakduhfaslkd', 'pruebaaaaaa enésima!!!!', 'sadifsajlidjasdisadncaslduifhasblñdv8ihfasndl fes divertidio!', '12vo piso, probando todo', '2024-09-09 10:24:18', 'Pendiente', NULL);
+(12, 'Mauro Prueba de Incidencia', 'Prueba técnica', 'Estamos probando la funcionalidad para crear una incidencia y así saber las cosas que el programador debe mejorar', '2do piso Baño', '2024-09-10 13:48:20', 'Resuelta', NULL),
+(14, 'prueba de actualizar', 'actualizar', 'aslidajsldiajsldaisd probando la actualizacion!!!!', '1er piso - playa', '2024-09-12 01:44:05', 'Resuelta', NULL),
+(15, 'Gato me arañó', 'Médica', 'Estuve pasando por el pasadizo de mi piso y de pronto salió un gato enorme el cual estuvo asustado y por defenderse \"supongo\", me arañó todo el brazo, me duele muchooooo, ayudaaaaaa!!!!!', 'pasadizo - 12vo piso', '2024-09-12 02:13:33', 'Pendiente', NULL),
+(16, 'Vidrio roto', 'Mantenimiento', 'Acabo de llegar a mi residencia y he notado que hay una ventana rota, por favor, quiero una solución', '5to piso - residencia 5', '2024-09-12 02:58:09', 'Pendiente', NULL),
+(17, 'Prueba de Incidencia', 'Pruebas con ganas', 'Pasa que ya son las 3:09am de la mañana y yo ya quiero dormir, pero mis profes muestran fe en mí y quieren que logre hacer este proyecto, espero les guste', '1er piso - luna', '2024-09-12 03:10:03', 'Pendiente', NULL);
 
 -- --------------------------------------------------------
 
@@ -124,7 +126,9 @@ INSERT INTO `Usuario` (`id_usuario`, `nombre`, `apellido`, `email`, `contraseña
 (2, 'Ana', 'García', 'ana.garcia@example.com', 'hashed_password2', 'residente'),
 (3, 'Carlos', 'López', 'carlos.lopez@example.com', 'hashed_password3', 'administrador'),
 (5, 'Jairo', 'Agostinelli', 'matías@example.com', 'matías123', 'administrador'),
-(7, 'Mauro', 'Agostinelli', 'mau@example.com', '$2b$10$gfgREn2ou9nf1.2q4gXK4epplyA0DHp3SAr/PiS21SBPDXGzkUUBi', 'administrador');
+(7, 'Mauro', 'Agostinelli', 'mau@example.com', '$2b$10$gfgREn2ou9nf1.2q4gXK4epplyA0DHp3SAr/PiS21SBPDXGzkUUBi', 'administrador'),
+(8, 'Joan', 'Begazo', 'joan@example.com', '$2b$10$xGaW9F6yMUcqXDYhJLQMzO2RqUovLfKjYQKa1EO0e1ny4dEJxRL96', 'residente'),
+(9, 'Priscyla', 'Begazo', 'pri@example.com', '$2b$10$JSjROSm0CraJQBKcI4cDzeiH2NcSMYABD5RKOXiSoJDSmfeVtXKsa', 'residente');
 
 --
 -- Índices para tablas volcadas
@@ -179,13 +183,13 @@ ALTER TABLE `Imagen`
 -- AUTO_INCREMENT de la tabla `Incidencia`
 --
 ALTER TABLE `Incidencia`
-  MODIFY `idIncidencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idIncidencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `Usuario`
 --
 ALTER TABLE `Usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
