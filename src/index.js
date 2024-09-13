@@ -8,6 +8,7 @@ import http from 'http'
 import { Server } from 'socket.io'
 import { validateCORS } from './middlewares/cors.middleware.js'
 import authRoutes from './routes/auth.routes.js'
+import imageRoutes from './routes/images.routes.js'
 
 const app = express()
 const server = http.createServer(app)
@@ -28,6 +29,7 @@ app.use('/api/users', usersRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/incidencias', incidenciasRouter)
 app.use('/api/comentarios', comentariosRouter)
+app.use('/api/images', imageRoutes)
 
 io.on('connection', (socket) => {
   console.log('Nuevo cliente conectado')
