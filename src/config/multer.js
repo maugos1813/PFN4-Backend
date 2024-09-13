@@ -1,4 +1,5 @@
 import multer from 'multer'
+// Aprendiendo multer
 
 const imagesStorage = multer.diskStorage({
   destination: function (req, file, cb) {
